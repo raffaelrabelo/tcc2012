@@ -1,0 +1,37 @@
+<%= form_for @form, url: save_individual_characterization_forms_path do |f| %>
+	<p>
+		<label>Nome</label> <%= @form.name %>
+	</p>
+	<p>
+		<label>Sexo</label> <%= @form.gender %>
+	</p>
+	<p>
+		<label>Data de nascimento</label> <%= f.date_select :date_of_birth %>
+	</p>
+	<p>
+		<label>Cidade</label> <%= f.text_field :city %>
+	</p>
+	<p>
+		<label>Estado</label> <%= f.text_field :state %>
+	</p>
+	<p>
+		<label>Gestante? <%= f.check_box :pregnant %></label>
+	</p>
+	<p>
+		<label>Estado civil</label> <%= f.collection_select :marital_status, MaritalStatus.types, :to_s, :to_s %>
+	</p>
+	<p>
+		<label>Nível de escolaridade</label> <%= f.collection_select :education_level, EducationLevel.types, :to_s, :to_s %>
+	</p>
+	<p>
+		<label>Ocupação</label> <%= f.text_field :job %>
+	</p>
+	<p>
+		<label>Renda</label> <%= f.collection_select :income, Income.types, :to_s, :to_s %>
+	</p>
+	<p>
+		<label>Quantas pessoas moram na sua casa</label> <%= f.text_field :quantity_of_residents %>
+	</p>
+	
+	<%= f.submit 'Próximo' %>
+<% end %>
